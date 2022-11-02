@@ -9,10 +9,10 @@
   let start = 0
   let current = 1
   // will have to keep one pointer on a letter while moving a second
-  // to follow a subs
+  // to follow a substring
   let end = 1
 
-  // if the subs ends, set highest to max of current and max, reset
+  // if the substring ends, set highest to max of current and max, reset
   // current variable and end pointer
   while (s[start]) {
     let set = new Set()
