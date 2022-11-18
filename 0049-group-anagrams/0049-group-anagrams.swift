@@ -1,64 +1,46 @@
 class Solution {
     func groupAnagrams(_ strs: [String]) -> [[String]] {
+        
+        // gaurd clause
         if strs.isEmpty { return [] }
-
+    
+        // declare dictionary to keep track of types of words
         var grouped: [String:[String]] = [:]
         
+        
+        // iterate through words in strs
         for str in strs {
+            
+            // sort the word to find the pattern and match it
             var sorted = String(str.sorted())
+            
+            // if our dictionary does not have an entry at the sorted word, create it and append current word
             if grouped[sorted] == nil {
                 grouped[sorted] = [str]
             } else {
+                // otherwise access the array already there (it's an optional so we need ! to unwrap it)
                 var existingSort = grouped[sorted]!
+                
+                // append the current word we're on
                 existingSort.append(str)
+                
+                // then set the value of this key to the array with newly appended value on it
                 grouped[sorted] = existingSort
-                // grouped[existingSort].append(str)
+                
             }
             
         }
         
+        // return a new Array from the values of our dictionary
         return Array(grouped.values)
-        // var a = [[String]]()
-        //     for x in grouped.values {
-        //         a.append(x)
-        //     }
-        //     return a
-//         for (i, letter) in alphabet.enumerated() {
-//             mappings[letter] = i
-//         }
         
-//         for word in strs {
-//             var pattern: [Int] = []
-//             for letter in word {
-//                 if let unwrapped = mappings[letter] {
-//                     print(unwrapped)
-//                 } else {
-//                     if let unwrapped = mappings[letter] {
-//                         print(unwrapped)
-//                     }
-//                     // pattern[mappings[letter] = letter]
-//                 }
-//             }
-            
-            // var joined = pattern.joined(seperator: "")
-            // if grouped[joined] != nil {
-            //     grouped[joined].append(word)
-            // } else {
-            //     grouped[joined] = [word]
-            // }
-        // }
+        // can also work
+        var a: [[String]] = []
+        for value in grouped.values {
+            a.append(value)
+        }
         
-        // print(grouped)
-//         var group: [String:[String]] = [:]
-//         for word in strs {
-//             var pattern = [Int]
-//             for letters in word {
-//                 if 
-//             }
-            
-//         }
-//         print(group)
-        
-        return [["hello"]]
+        return a
+    
     }   
 }
