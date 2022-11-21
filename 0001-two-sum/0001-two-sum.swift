@@ -1,22 +1,35 @@
 class Solution {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-        var seenNumbers: [Int:Int] = [:]
-        // var complement: Int
-        
-        for (i, v) in nums.enumerated() {
-            if (seenNumbers[target - v] != nil && i != seenNumbers[target - v]) {
-                
-                if let unwrapped = seenNumbers[ target - v] {
-                    return [i, unwrapped]
-                }
-                // print(test)
-                // return [i, complement]
+        var seen:[Int: Int] = [:]
+        for (i, num) in nums.enumerated() {
+            if (seen[target - num] != nil && seen[target - num] != i) {
+                return [i, seen[target - num]!]
             } else {
-                seenNumbers[v] = i
+                seen[num] = i
             }
-            
         }
-        print(seenNumbers)
-        return [1, 1]
+        
+        return []
     }
 }
+
+
+
+
+
+// var seenNumbers: [Int:Int] = [:]
+        
+//         for (i, v) in nums.enumerated() {
+//             if (seenNumbers[target - v] != nil && i != seenNumbers[target - v]) {
+                
+//                 return [i, seenNumbers[target - v]!]
+//                 // if let unwrapped = seenNumbers[ target - v] {
+//                 //     return [i, unwrapped]
+//                 // }
+//             } else {
+//                 seenNumbers[v] = i
+//             }
+            
+//         }
+//         print(seenNumbers)
+//         return [1, 1]
