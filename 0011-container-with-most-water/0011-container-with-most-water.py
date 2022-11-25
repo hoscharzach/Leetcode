@@ -9,12 +9,7 @@ class Solution:
         maxWater = (r - l) * min(height[l], height[r])
         
         while l < r:
-            curr = 0
-            h = min(height[l], height[r])
-            w = r - l
-            curr = h * w
-            maxWater = max(curr, maxWater)
-                 
+            maxWater = max(min(height[l], height[r]) * (r - l), maxWater)        
             if height[r] < height[l]:
                 r -= 1
             else:
